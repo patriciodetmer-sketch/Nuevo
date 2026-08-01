@@ -2,7 +2,8 @@
 
 Base de contactos de inmobiliarias con **desarrollo de edificios (departamentos) en la Región Metropolitana**, con oferta vigente o histórico reciente de proyectos.
 
-- **Archivo de datos:** [`inmobiliarias_santiago.csv`](./inmobiliarias_santiago.csv)
+- **Excel:** [`inmobiliarias_santiago.xlsx`](./inmobiliarias_santiago.xlsx) — hoja `Contactos` (filtros, semáforo de confianza, correos y webs clicleables) + hoja `Resumen`
+- **Datos planos:** [`inmobiliarias_santiago.csv`](./inmobiliarias_santiago.csv)
 - **Empresas en esta versión:** 38
 - **Fecha de levantamiento:** agosto 2026
 
@@ -28,7 +29,7 @@ Base de contactos de inmobiliarias con **desarrollo de edificios (departamentos)
 - **baja** — solo existe una casilla de propósito acotado (denuncias, postventa) o un contacto nominal de un ejecutivo; sirve como puerta de entrada, no como correo institucional.
 - **sin dato** — la empresa no publica correo; el canal es formulario web o teléfono.
 
-19 de las 38 empresas tienen correo con confianza alta o media. Las 19 restantes solo operan por formulario web: para esas, el camino es el formulario o una llamada pidiendo el correo del área comercial.
+**21 de las 38** empresas tienen correo utilizable: 16 con confianza alta y 5 con media. De las 17 restantes, 4 tienen solo una casilla acotada (confianza baja) y 13 no publican correo alguno — para esas el camino es el formulario web o una llamada pidiendo el correo del área comercial.
 
 ## Metodología y límites
 
@@ -46,7 +47,7 @@ Base de contactos de inmobiliarias con **desarrollo de edificios (departamentos)
 En orden de rendimiento:
 
 1. **Reactivar la cuota de Data Inmobiliaria** ([plan de pago](https://datainmobiliaria.cl/organizations/select_plan)). Con `publicaciones` filtrada por `es_proyecto = TRUE` + comunas RM se obtiene el universo de proyectos en venta vigentes, y con `contenido_publicacion` sobre cada aviso se extrae el desarrollador. Eso convierte esta lista curada en un censo con respaldo de datos y actualizable.
-2. **Habilitar navegación web en el entorno** para leer `adi-ag.cl/empresas-asociadas` (52 socios ADI) y las páginas de contacto una a una, cerrando los 19 correos faltantes.
+2. **Habilitar navegación web en el entorno** para leer `adi-ag.cl/empresas-asociadas` (52 socios ADI) y las páginas de contacto una a una, cerrando los 17 correos faltantes.
 3. **Padrón CChC** — el registro de socios de la Cámara Chilena de la Construcción suma constructoras-inmobiliarias que no están en ADI.
 
 ## Anexo: operadores de renta residencial (no desarrolladores puros)
