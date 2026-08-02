@@ -1,4 +1,13 @@
-# Levantamiento: inmobiliarias que desarrollan edificios en Santiago
+# Levantamientos de inmobiliarias — Santiago
+
+Este directorio contiene dos levantamientos distintos:
+
+1. **Mercado libre** (este documento) — inmobiliarias que desarrollan edificios de departamentos en la RM.
+2. **Vivienda social DS19 y DS49** — ver [`README_ds19_ds49.md`](./README_ds19_ds49.md).
+
+---
+
+# Levantamiento 1: inmobiliarias que desarrollan edificios en Santiago
 
 Base de contactos de inmobiliarias con **desarrollo de edificios (departamentos) en la Región Metropolitana**, con oferta vigente o histórico reciente de proyectos.
 
