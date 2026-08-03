@@ -2,10 +2,23 @@
 
 - **Excel:** [`inmobiliarias_ds19_ds49.xlsx`](./inmobiliarias_ds19_ds49.xlsx) — hojas `DS19`, `DS49` y `Resumen`
 - **Datos planos:** [`inmobiliarias_ds19_ds49.csv`](./inmobiliarias_ds19_ds49.csv)
-- **Entidades:** 36 (27 con DS19, 18 con DS49; varias operan en ambos)
-- **Con presencia en la RM:** 26
+- **Entidades:** 44 (27 con DS19, 26 con DS49; varias operan en ambos)
+- **Con presencia en la RM:** 34
 - **Con correo directo:** 11
 - **Fecha:** agosto 2026
+
+## Estado de la nómina oficial de entidades patrocinantes
+
+**No se pudo descargar.** La política de red de este entorno rechaza la conexión a los dominios de MINVU en el gateway de salida (403 al CONNECT, tanto `proveedorestecnicos.minvu.gob.cl` como `proveedores-tecnicos.minvu.gob.cl` y `minvu.gob.cl`). No es una caída del sitio ni un bloqueo del servidor: es la política de egreso del entorno.
+
+Lo que sí se recuperó, vía índices de búsqueda sobre el PDF de la **nómina de junio 2026**, son 8 entidades patrocinantes de la RM que antes no estaban: Evolutiva, Kutralwe, Jessica Sandoval Quiroga E.I.R.L., Manuel Medina E.I.R.L., Gestora Mashogar, Inmobiliaria D&M, Nahuen Ingenieros Constructores Asociados, y Ávalos y Ibacache Arquitectos Sociales. **Solo el nombre** — el PDF trae además RUT, contacto, dirección, comuna, teléfono y correo de cada una, y eso sigue pendiente.
+
+**Para obtenerla, descarga directa desde:**
+
+- Página índice: `proveedorestecnicos.minvu.gob.cl/entidades-patrocinantes/`
+- PDF de junio 2026: `proveedores-tecnicos.minvu.gob.cl/wp-content/uploads/2017/04/Nomina-de-entidades-habilitadas-a-operar-por-region-Junio-2026_compressed.pdf`
+
+Con ese archivo en el repositorio, las columnas de correo y teléfono de la hoja DS49 se completan de una pasada.
 
 ## Lo primero: DS19 y DS49 no se contactan igual
 
