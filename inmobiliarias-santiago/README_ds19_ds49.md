@@ -2,23 +2,26 @@
 
 - **Excel:** [`inmobiliarias_ds19_ds49.xlsx`](./inmobiliarias_ds19_ds49.xlsx) — hojas `DS19`, `DS49` y `Resumen`
 - **Datos planos:** [`inmobiliarias_ds19_ds49.csv`](./inmobiliarias_ds19_ds49.csv)
-- **Entidades:** 44 (27 con DS19, 26 con DS49; varias operan en ambos)
-- **Con presencia en la RM:** 34
-- **Con correo directo:** 11
+- **Entidades:** 39 (27 con DS19, 21 con DS49; varias operan en ambos)
+- **Con presencia en la RM:** 31
+- **Con correo directo:** 25
 - **Fecha:** agosto 2026
 
-## Estado de la nómina oficial de entidades patrocinantes
+## Nómina oficial de entidades patrocinantes — incorporada
 
-**No se pudo descargar.** La política de red de este entorno rechaza la conexión a los dominios de MINVU en el gateway de salida (403 al CONNECT, tanto `proveedorestecnicos.minvu.gob.cl` como `proveedores-tecnicos.minvu.gob.cl` y `minvu.gob.cl`). No es una caída del sitio ni un bloqueo del servidor: es la política de egreso del entorno.
+El PDF oficial de la **nómina MINVU/DITEC de junio 2026** (47 páginas, 1.256 entidades en todo el país) se procesó y se filtró por Región Metropolitana:
 
-Lo que sí se recuperó, vía índices de búsqueda sobre el PDF de la **nómina de junio 2026**, son 8 entidades patrocinantes de la RM que antes no estaban: Evolutiva, Kutralwe, Jessica Sandoval Quiroga E.I.R.L., Manuel Medina E.I.R.L., Gestora Mashogar, Inmobiliaria D&M, Nahuen Ingenieros Constructores Asociados, y Ávalos y Ibacache Arquitectos Sociales. **Solo el nombre** — el PDF trae además RUT, contacto, dirección, comuna, teléfono y correo de cada una, y eso sigue pendiente.
+- **[`entidades_patrocinantes_rm.csv`](./entidades_patrocinantes_rm.csv) / [`.xlsx`](./entidades_patrocinantes_rm.xlsx) — 270 entidades patrocinantes de la RM, todas con correo y teléfono**, más RUT, contacto, dirección, comuna, categoría MINVU y número de resolución.
 
-**Para obtenerla, descarga directa desde:**
+Con esa fuente se corrigieron y completaron las filas de la hoja DS49:
 
-- Página índice: `proveedorestecnicos.minvu.gob.cl/entidades-patrocinantes/`
-- PDF de junio 2026: `proveedores-tecnicos.minvu.gob.cl/wp-content/uploads/2017/04/Nomina-de-entidades-habilitadas-a-operar-por-region-Junio-2026_compressed.pdf`
+**Corrección.** Cinco entidades que se habían agregado a partir de índices de búsqueda resultaron **no ser de la Región Metropolitana** y se eliminaron: Jessica Sandoval Quiroga E.I.R.L. y Manuel Medina E.I.R.L. (Tarapacá), Inmobiliaria D&M (Tarapacá), Nahuen Ingenieros Constructores Asociados y Ávalos y Ibacache Arquitectos Sociales (Antofagasta). Los índices de búsqueda no conservan la columna de región, y esa fue la causa del error.
 
-Con ese archivo en el repositorio, las columnas de correo y teléfono de la hoja DS49 se completan de una pasada.
+**Verificadas y completadas con correo oficial** — INSOC, Consultora e Inmobiliaria Hogar, Miraflores, Consultora V y S, Emile Straub, Municipalidad de Huechuraba, Urbanismo Social (opera como *Asesorías Gestión Vivienda Ltda*), TECHO (*Fundación Un Techo para Chile*), OVAL (tiene una EP propia, *OVAL Entidad Patrocinante Ltda*), Evolutiva, Kutralwe y Gestora Mas Hogar.
+
+**Dos socias de ADVS aparecieron en la nómina** y quedaron confirmadas como RM: **Consolida SpA** (`contacto@consolida.cl`) e **Identidades** (`fmella@consultoraidentidades.com`).
+
+**DOMUM** figuraba en un documento MINVU antiguo pero **no aparece en la nómina de junio 2026** — probablemente ya no está habilitada. Queda marcada así en el archivo.
 
 ## Lo primero: DS19 y DS49 no se contactan igual
 
@@ -66,16 +69,15 @@ El de Noval es de postventa, no comercial — úsalo solo como puerta de entrada
 
 ## Limitaciones
 
-Las mismas dos del levantamiento 1, y pesan más aquí porque las fuentes oficiales son justamente las bloqueadas:
-
-1. **Sin acceso directo a sitios web** (bloqueo de red, HTTP 403). No se pudo descargar el **listado oficial de proyectos DS19 vigentes del MINVU**, la **nómina de entidades patrocinantes de la RM** (`proveedorestecnicos.minvu.gob.cl`, se actualiza mensualmente) ni el **padrón de socios de la ADVS**. Los tres son listados públicos y completos: con navegación habilitada, esta lista pasa de 36 a probablemente más de 100 entidades.
+1. **Sin acceso directo a sitios web** (bloqueo de red, HTTP 403). La nómina de entidades patrocinantes ya se resolvió con el PDF aportado manualmente, pero siguen pendientes el **listado oficial de proyectos DS19 vigentes del MINVU** y el **padrón de socios de la ADVS** (43 miembros). Ambos son públicos.
 2. **La cuota de BigQuery de Data Inmobiliaria está agotada.**
+3. **La nómina es de junio 2026 y se actualiza mensualmente.** Antes de una campaña conviene bajar la versión vigente.
 
 **Sobre la calidad de las filas:** las 7 marcadas `Por confirmar` (Albores, Consolida, Urbanitas, Grupo Vías, Ciclos, Identidades, Fundación Deportistas por un Sueño) son socias de la ADVS identificadas por nombre en fuentes secundarias — existen, pero no tengo sitio web ni contacto verificado. Y la nómina de entidades patrocinantes DS49 de la RM es **parcial**: son las que aparecieron nombradas en documentos MINVU citados en resultados de búsqueda, no el listado oficial.
 
 ## Para completar
 
-1. **`proveedorestecnicos.minvu.gob.cl/entidades-patrocinantes/`** — nómina oficial de EP por región, mensual. Es la fuente que convierte la hoja DS49 en un censo real.
-2. **Portal de oferta inmobiliaria del MINVU** — proyectos DS19 vigentes con sala de ventas y entidad desarrolladora por proyecto.
-3. **`advschile.cl`** — los 43 socios, que cubren buena parte del rubro.
-4. **SERVIU Metropolitano** — nómina regional y proyectos DS49 en ejecución.
+1. ~~Nómina oficial de entidades patrocinantes~~ — **hecho**, 270 entidades de la RM en `entidades_patrocinantes_rm.csv`.
+2. **Portal de oferta inmobiliaria del MINVU** — proyectos DS19 vigentes con sala de ventas y entidad desarrolladora por proyecto. Es lo que falta para cerrar el lado DS19.
+3. **`advschile.cl`** — los 43 socios del gremio; 7 siguen sin contacto verificado.
+4. **SERVIU Metropolitano** — proyectos DS49 en ejecución, para saber qué EP están activas hoy y no solo habilitadas.
