@@ -1,6 +1,13 @@
-# Plantilla de merge — DS49, entidades patrocinantes categoría Primera
+# Plantilla de merge — DS49, entidades patrocinantes
 
-Archivo de destinatarios: [`merge_ds49_categoria_primera.csv`](./merge_ds49_categoria_primera.csv) / [`.xlsx`](./merge_ds49_categoria_primera.xlsx) — **73 destinatarios únicos**.
+Sirve igual para las dos tandas generadas:
+
+| Categoría | Archivo | Destinatarios únicos |
+|---|---|---|
+| Primera | [`merge_ds49_categoria_primera.csv`](./merge_ds49_categoria_primera.csv) / [`.xlsx`](./merge_ds49_categoria_primera.xlsx) | 73 (de 75 en la nómina) |
+| Segunda | [`merge_ds49_categoria_segunda.csv`](./merge_ds49_categoria_segunda.csv) / [`.xlsx`](./merge_ds49_categoria_segunda.xlsx) | 21 |
+
+**94 destinatarios en total** entre ambas. Para generar otra categoría: `python3 fuentes/build_merge.py TERCERA`.
 
 Los campos entre `{{llaves}}` los reemplaza la herramienta de merge desde las columnas del CSV. Los campos entre `[CORCHETES]` los reemplazas tú **una sola vez** antes de lanzar la campaña: son constantes, no varían por destinatario.
 
@@ -86,17 +93,23 @@ Patricio Detmer
 
 **No uses el campo de contacto como saludo.** En el PDF de MINVU el nombre de la persona y la dirección vienen fusionados en una sola celda, y la separación que hice es heurística: hay nombres cortados a la mitad y filas donde quedó texto de la dirección. Sirve para saber por quién preguntar al llamar, confirmándolo en la llamada. En un correo, un nombre mal puesto hace más daño que no poner ninguno.
 
-## Por qué categoría Primera
+## Las categorías, y cómo secuenciar el envío
 
-De las 270 entidades patrocinantes habilitadas en la RM, 75 son categoría Primera (y 73 buzones únicos). Es la clasificación que asigna el MINVU en su nómina. **Conviene verificar el criterio exacto en la normativa antes de sacar conclusiones**, pero como primer filtro para una campaña acotada funciona: reduce 270 a 73 sin quedarse con las entidades más pequeñas.
+De las 270 entidades patrocinantes habilitadas en la RM: **134 Tercera, 75 Primera, 40 Única, 21 Segunda.** Es la clasificación que asigna el MINVU en su nómina. **Conviene verificar el criterio exacto en la normativa antes de sacar conclusiones**, pero como filtro para acotar una campaña funciona.
 
-Si esta tanda responde bien, la siguiente natural es categoría Segunda (21 entidades). Tercera son 134 y Única 40 — ahí conviene otro criterio de corte, probablemente por comuna.
+Orden sugerido:
+
+1. **Primera (73)** — la tanda principal. Tres o cuatro días de envío.
+2. **Segunda (21)** — una sola tanda. Ninguna comparte correo, así que son 21 limpios.
+3. **Tercera (134) y Única (40)** — solo si las dos primeras rinden. Ahí conviene cortar por comuna antes que mandar 174 correos de una.
+
+Un contraste útil entre las dos primeras tandas: en Primera, 40 de 73 tienen dominio propio; en Segunda, solo 9 de 21. La categoría Segunda es notoriamente más chica y artesanal, así que ahí el teléfono pesa aún más que el correo.
 
 ## Antes de lanzar
 
 1. Reemplaza los `[CORCHETES]` — datos del terreno y tu firma.
 2. Envía desde tu dominio, con SPF y DKIM configurados.
-3. Tandas de 20–25 al día: son 73, o sea tres o cuatro días.
+3. Tandas de 20–25 al día: Primera son tres o cuatro días, Segunda cabe en uno.
 4. Martes a jueves, 9:00–11:00.
-5. Dos filas comparten casilla con otra entidad (marcadas en la columna `nota`): ya están deduplicadas, pero si alguien responde, ten presente que puede hablar por dos entidades.
-6. **Buena parte de los correos son Gmail personal.** Son entidades chicas, muchas unipersonales. Ahí el teléfono convierte bastante mejor que el correo, y la planilla trae todos los números.
+5. En Primera, dos filas comparten casilla con otra entidad (marcadas en la columna `nota`): ya están deduplicadas, pero si alguien responde, ten presente que puede hablar por dos entidades. En Segunda no hay casillas compartidas.
+6. **Casi la mitad de los correos son de casilla gratuita** — 33 de 73 en Primera, 12 de 21 en Segunda. Son entidades chicas, muchas unipersonales. Ahí el teléfono convierte bastante mejor que el correo, y la planilla trae todos los números.
